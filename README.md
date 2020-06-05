@@ -1,2 +1,2 @@
-# rps collaboration project
-Lena Irene
+# Rock, Paper, Scissors Collaboration Project
+Lena and Irene

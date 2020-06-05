@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Fabulous Page</title>
-  <link rel="stylesheet" type="text/css" href="assets/stylesheets/custom.css">
+	<link rel="stylesheet" type="text/css" href="assets/stylesheets/custom.css">
+	<meta name="viewport" content="width=device, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Rock, Paper, Scissors</title>
 </head>
 <body>
-  <h1 id="doug">Hello World</h1>
-  <a href="assets/other.html">(Francais)</a>
+	<div class="container">
+		<h1>Play Rock, Paper, Scissors!</h1>
+
+		<div class="info">
+
+			<button type="button" class="btn btn-secondary" id="rules" onclick="showRules()">Rules</button>
+
+			<button type="button" class="btn btn-secondary" id="yesplay" onclick="showChoices()">Play</button>
+
+			<button type="button" class="btn btn-secondary" id="noplay" onclick="showExit()">Exit</button>
+
+			<p id="rule_info"></p>
+		</div>
+
+		<div class="statistics" style="visibility: hidden;">
+			<p id="gameResult"></p>
+			<p id="gameScore"></p>
+		</div>
+
+		<div class="choices" style="visibility: hidden;">
+
+			<p id="makechoice" style="font-size: x-large;"></p>
+				
+			<button class="handChoice" id="rock" onclick="getPlayerChoice(this.id)"><img class="img-responsive" src="assets/images/rock.jpg" alt="Rock" ></button>
+		
+			<button class="handChoice" id="paper" onclick="getPlayerChoice(this.id)"><img class="img-responsive" src="assets/images/paper.jpg" alt="Paper" ></button>
+		
+			<button class="handChoice" id="scissors" onclick="getPlayerChoice(this.id)"><img class="img-responsive" src="assets/images/scissors.jpg" alt="Scissors" ></button>
+			
+		</div>
+	</div>	
+
+<!-- 	//end of body  -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="assets/javascripts/empty.js"></script>
+
+
+
 </body>
 </html>
