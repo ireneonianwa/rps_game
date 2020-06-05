@@ -7,7 +7,10 @@
 	<title>Rock, Paper, Scissors</title>
 </head>
 <body>
-	<div class="container">
+	<div class="exitMessage" style="visibility: hidden;">
+		<h1>Thanks for playing!</h1>
+	</div>
+	<div class="container" id="playGame">
 		<h1>Play Rock, Paper, Scissors!</h1>
 
 		<div class="info">
@@ -37,6 +40,11 @@
 			<button class="handChoice" id="scissors" onclick="getPlayerChoice(this.id)"><img class="img-responsive" src="assets/images/scissors.jpg" alt="Scissors" ></button>
 			
 		</div>
+
+		<!-- <div class="continue">
+			<button id="rematch" onclick ="keepPlaying()">Rematch!</button>
+			<button id="done" onclick="keepPlaying()">Done</button>
+		</div> -->
 	</div>	
 
 <!-- 	//end of body  -->

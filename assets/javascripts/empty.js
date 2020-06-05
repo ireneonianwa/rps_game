@@ -10,7 +10,7 @@ var computer = {
 	wins: 0
 }; 
 
-var hands = ["Rock", "Paper", "Scissors"];
+var hands = ["rock", "paper", "scissors"];
 
 //Toggle display of instructions using Rules button 
 const showRules = function() {
@@ -44,20 +44,20 @@ const getComputerChoice = function() {
 
 const getPlayerChoice = function(clicked) {
 	(function(){
-		var playerPick = document.getElementsByClassName("handChoice");
+		var playerPick = document.getElementsByClassName("choices");
 		for (var i=0; i<playerPick.length; i++) {
 			playerPick[i].style.visibility = "hidden";
 		}
 	})();
 	computer.hand = getComputerChoice();
-	// player.hand = 
+	player.hand = (clicked);
 	checkResult();
 };
 
 let displayScore = function(){
 	if (player.wins>0 || computer.wins>0) {
 		document.getElementsByClassName("statistics")[0].style.visibility = "visible";
-		document.getElementById("gameScore").innerHTML = "Overall " +player.name+ " has won " +player.wins+ " games and the Computer has won " +computer.wins+ " games.";
+		document.getElementById("gameScore").innerHTML = "Overall " +player.name+ " has won " +player.wins+ " game(s) and the Computer has won " +computer.wins+ " game(s). Press the play button again for a rematch!";
 	}
 };
 
@@ -82,7 +82,7 @@ const checkResult = function() {
 	var winner = 0;
 	if (player.hand === computer.hand) {
 		winner = 0;
-	} else if ((player.hand === "Rock" && computer.hand === "Scissors") || (player.hand === "Scissors" && computer.hand === "Paper") || (player.hand === "Paper" && computer.hand === "Rock")){
+	} else if ((player.hand === "rock" && computer.hand === "scissors") || (player.hand === "scissors" && computer.hand === "paper") || (player.hand === "paper" && computer.hand === "rock")){
 		player.wins += 1;
 		winner = 1;
 	} else {
@@ -91,6 +91,25 @@ const checkResult = function() {
 	}
 	displayScore();
 	showResult(winner);
+};
+
+// const keepPlaying = function(finished) {
+// 	if(finished==="rematch"){
+// 		document.getElementsByClassName("choices")[0].style.visbility="visible";
+// 	} else if(finished="done"){
+// 		showExit();
+// 	}
+// };
+
+const showExit = function() {
+	document.getElementById("playGame").innerHTML =null;
+	document.getElementsByClassName("exitMessage")[0].style.visibility="visible";
+	// document.getElementsByClassName("info")[0].style.visiblity="hidden";
+	// document.getElementsByClassName("choices")[0].style.visibility="hidden";
+	// document.getElementsByClassName("statistics")[0].style.visiblity="hidden";
+	// document.getElementById("gameResult").innerHTML = null;
+	// document.getElementById("gameScore").innerHTML = null;
+	// document.getElementsByClassName("continue")[0].style.visiblity="hidden";
 };
 
 
