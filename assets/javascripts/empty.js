@@ -1,5 +1,7 @@
+document.getElementById("match").disabled = true;
+
 var player = {
-	name: "Guest",
+	name: "",
 	hand: "",
 	wins: 0
 }; 
@@ -12,9 +14,10 @@ var computer = {
 
 var hands = ["rock", "paper", "scissors"];
 
+
 //Toggle display of instructions using Rules button 
 const showRules = function() {
-	var howToPlay = "This is a variation of the classic game Rock, Paper, Scissors. To play, click the Play button and select rock, paper, or scissors when prompted and see how your decision fares against the Computer's AI. Rock beats scissors, scissors beats paper, and paper beats rock. Good luck! (This text will disappear by re-clicking the button marked Rules).";
+	var howToPlay = "Rock, Paper, Scissors is classic a zero sum game that is usually played by two people using their hands and no tools. The idea is to make shapes with an outstretched hand where each shape will have a certain degree of power and will lead to an outcome (rock breaks scissors, scissors cuts paper, and paper covers rock). This site is a variation of the game where you can try your luck against the Computer's artificial intelligence. To play, click the green Play button and select rock, paper, or scissors when prompted and see how your decision fares against the random choice made by the Computer. If you would like to play a rematch, click the green Rematch button, and the site will keep track of the score for each round played. When you are done, you can click the red Exit button. Good luck! (This text will disappear by re-clicking the blue button marked Rules).";
 
 	const instructions = document.getElementById("rule_info").innerHTML;
 	if(instructions.length === 0){
@@ -24,10 +27,14 @@ const showRules = function() {
 	}
 };
 
-
+// const promptName = function() {
+// 	var playerName = prompt("Please enter your name", "Bob");
+// 	if (playerName != null) {
+// 		document.getElementById("makechoice").innerHTML = "Hello " +playerName "! Make your choice:";
+// 	}
+// };
 
 const showChoices = function(){
-	document.getElementById("makechoice").innerHTML=player.name + ", make your choice:";
 	var pickHand = document.getElementsByClassName("choices");
 	if(pickHand[0].style.visibility == "hidden"){
 		pickHand[0].style.visibility = "visible";
@@ -35,12 +42,23 @@ const showChoices = function(){
 };
 
 
+const promptName = function(){
+	var playerName = prompt("Please enter your name", "Guest");
+	if (playerName != null) {
+		document.getElementById("makechoice").innerHTML = "Hello " +playerName+ "! Make your choice:";
+	}
+
+	showChoices();
+};
+
 
 const getComputerChoice = function() {
 	return hands[parseInt(Math.random()*10)%3];
 };
 
-
+const showRestart = function refreshPage() {
+	window.location.reload();
+};
 
 const getPlayerChoice = function(clicked) {
 	(function(){
@@ -57,7 +75,7 @@ const getPlayerChoice = function(clicked) {
 let displayScore = function(){
 	if (player.wins>0 || computer.wins>0) {
 		document.getElementsByClassName("statistics")[0].style.visibility = "visible";
-		document.getElementById("gameScore").innerHTML = "Overall " +player.name+ " has won " +player.wins+ " game(s) and the Computer has won " +computer.wins+ " game(s). Press the play button again for a rematch!";
+		document.getElementById("gameScore").innerHTML = "You have won " +player.wins+ " game(s) and the Computer has won " +computer.wins+ " game(s). Press the Rematch button to keep playing or the Reset button to reset the score";
 	}
 };
 
@@ -88,28 +106,37 @@ const checkResult = function() {
 	} else {
 		computer.wins +=1;
 		winner = -1;
-	}
+	};
+
+	document.getElementById("match").disabled = false;
+	document.getElementById("yesplay").disabled = true;
+
+	// var hidePlay = document.getElementsByClassName("ugh");
+	// if (hidePlay[0].style.opacity=="100%") {
+	// 	hidePlay[0].style.opacity="50%";
+	// };
+
+	// var playAgain = document.getElementsByClassName("moregame");
+	// if (playAgain[0].style.opacity=="50%") {
+	// 	playAgain[0].style.opacity="100%";
+	// };
+
 	displayScore();
 	showResult(winner);
+
 };
 
-// const keepPlaying = function(finished) {
-// 	if(finished==="rematch"){
-// 		document.getElementsByClassName("choices")[0].style.visbility="visible";
-// 	} else if(finished="done"){
-// 		showExit();
-// 	}
-// };
+
+
 
 const showExit = function() {
+	var gameText = document.getElementById("headingMessage");
+	if (gameText.innerHTML === "Play Rock, Paper, Scissors!") {
+		gameText.innerHTML = "Thanks for Playing!";
+	} else {
+		gameText.innerHTML = "Play Rock, Paper, Scissors!";
+	};
 	document.getElementById("playGame").innerHTML =null;
-	document.getElementsByClassName("exitMessage")[0].style.visibility="visible";
-	// document.getElementsByClassName("info")[0].style.visiblity="hidden";
-	// document.getElementsByClassName("choices")[0].style.visibility="hidden";
-	// document.getElementsByClassName("statistics")[0].style.visiblity="hidden";
-	// document.getElementById("gameResult").innerHTML = null;
-	// document.getElementById("gameScore").innerHTML = null;
-	// document.getElementsByClassName("continue")[0].style.visiblity="hidden";
 };
 
 

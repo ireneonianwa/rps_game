@@ -5,42 +5,33 @@
 	<meta name="viewport" content="width=device, initial-scale=1">
 	<meta charset="utf-8">
 	<title>Rock, Paper, Scissors</title>
-  <!-- <style>
-  body {
-  background-color: #92a8d1;
-  }
-</style> -->
+
 </head>
-<body>
+<body class="container">
 
-	<div class="exitMessage" style="visibility: hidden;">
-    <h1>
-      Thanks for Playing!
-    </h1>
-     
+	<div class="jumbotron jumbotron-fluid">
+  		<div class="container1">
+    		<h1 id="headingMessage">Play Rock, Paper, Scissors!</h1>
+     		<img class="blue" src="assets/images/rps3.jpeg">
+     		<img class="blue" src="assets/images/rps2.jpeg">
+     		<img class="blue" src="assets/images/rps1.jpeg">
+     <!-- <div>
+       <iframe class="vid" width="420" height="315" src="https://www.youtube.com/embed/AnRYS02tvRA"></iframe>
+     </div> -->
+   		</div> 
 	</div>
-
-	<div class="container" id="playGame">
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container1">
-        <h1>Play Rock, Paper, Scissors!</h1>
-         <img class="blue" src="assets/images/rps3.jpeg">
-         <img class="blue" src="assets/images/rps2.jpeg">
-         <img class="blue" src="assets/images/rps1.jpeg">
-         <div>
-          <!--  <iframe class="vid" width="420" height="315" src="https://www.youtube.com/embed/AnRYS02tvRA"></iframe> -->
-         </div>
-         
-       </div> 
-     
-		</div>
   
-
+	<div id="playGame">
+		
 		<div class="info">
 
 			<button type="button" class="btn btn-secondary" id="rules" onclick="showRules()">Rules</button>
 
-			<button type="button" class="btn btn-secondary" id="yesplay" onclick="showChoices()">Play</button>
+			<button type="button" class="btn btn-secondary ugh" id="yesplay" onclick="promptName()">Play</button>
+
+			<button type="button" class="btn btn-secondary moregame" id="match" onclick="showChoices()">Rematch</button>
+
+			<button type="button" class="btn btn-secondary" id="restart" onclick="showRestart()">Reset</button>
 
 			<button type="button" class="btn btn-secondary" id="noplay" onclick="showExit()">Exit</button>
 
@@ -48,20 +39,15 @@
 		</div>
 
 		<div class="statistics" style="visibility: hidden;">
-			<p id="gameResult"></p>
-			<p id="gameScore"></p>
+			<p id="gameResult" style="font-size: x-large;"></p>
+			<p id="gameScore" style="font-size: larger;"></p>
 		</div>
 
 		<div class="choices" style="visibility: hidden;">
-
 			<p id="makechoice" style="font-size: x-large;"></p>
-				
 			<button class="handChoice" id="rock" onclick="getPlayerChoice(this.id)"><img class="img-responsive" src="assets/images/rock.jpg" alt="Rock" ></button>
-		
 			<button class="handChoice" id="paper" onclick="getPlayerChoice(this.id)"><img class="img-responsive" src="assets/images/paper.jpg" alt="Paper" ></button>
-		
 			<button class="handChoice" id="scissors" onclick="getPlayerChoice(this.id)"><img class="img-responsive" src="assets/images/scissors.jpg" alt="Scissors" ></button>
-			
 		</div>
 
 		<!-- <div class="continue">
